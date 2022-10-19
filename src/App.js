@@ -10,16 +10,12 @@ function App() {
   const [content, setContent] = useState("");
 
   const test = async () => {
-    let formData = new FormData();
-
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open(
-      "GET",
-      "https://vnforex.com/star-atlas-buoc-phat-trien-cua-gamefi-trong-2022/",
-      false
+    const { data } = await axios.get(
+      "https://vnforex.com/star-atlas-buoc-phat-trien-cua-gamefi-trong-2022/"
     );
-    xmlHttp.send(null);
-    const str = xmlHttp.responseText
+
+    console.log(data);
+    const str = data
       .replace(/width=".+"/g, "")
       .replace(/height=".+"/g, "")
       .replace(/sizes=".+"/g, "")
